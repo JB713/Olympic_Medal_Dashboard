@@ -1,0 +1,16 @@
+click
+dnspython
+Flask
+itsdangerous
+Jinja2
+MarkupSafe
+numpy
+pandas
+psycopg2-binary
+pymongo
+pymssql
+python-dateutil
+pytz
+six
+SQLAlchemy
+Werkzeug

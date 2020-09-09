@@ -1,0 +1,1 @@
+connection_string = "postgres://krlkntwlrjepwb:ea1993f54221c1a988ed244758ddd417d19fe9f20530cdff315013f75bc2b4b1@ec2-52-23-86-208.compute-1.amazonaws.com:5432/d3iafkqp4m230g";
