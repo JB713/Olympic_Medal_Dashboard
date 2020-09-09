@@ -1,0 +1,44 @@
+Country
+-
+Country_id PK INT
+Country_Name varchar
+County_Code varchar
+Population INT
+GDP        INT
+
+
+
+
+Game
+-
+Year Varchar
+City Varchar
+Sport Varchar
+Discipline Varchar
+Event_Id PK INT
+Event Varchar
+Season Varchar
+
+
+
+Athlete
+-
+Country_id int FK >- Country.Country_id
+AName varchar
+#Event_Id int FK >- Game.Event_Id
+Athlete_id PK INT
+Gender varchar
+#Medal_id int FK >- Medal.Medal_id
+
+Medal
+-
+Medal_id PK INT
+Medal varchar
+#Event_Id int FK >- Game.Event_Id
+#Athlete_id int FK >- Athlete.Athlete_id
+
+Master
+--
+Athlete_id int FK >- Athlete.Athlete_id
+Event_id int FK >- Game.Event_Id
+Medal_id int FK >- Medal.Medal_id
