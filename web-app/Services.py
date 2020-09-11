@@ -20,6 +20,7 @@ class Services():
         self.Country = self.Base.classes['country']
         self.Athlete = self.Base.classes['athlete']
         self.Master = self.Base.classes['master_olympics']
+        self.Event = self.Base.classes['event']
         self.meta = MetaData()
 
     def get_medals(self):
@@ -28,6 +29,7 @@ class Services():
         results = session.query(self.Medal)
         df = pd.read_sql(results.statement, session.connection())
         session.close()
+
         return df.to_dict(orient='records')
 
     def get_countries(self):
@@ -36,18 +38,17 @@ class Services():
         results = session.query(self.Country)
         df = pd.read_sql(results.statement, session.connection())
         session.close()
+
         return df.to_dict(orient='records')
 
-    def get_country(self, country):
-
-        print(country)
+    def get_country_info_by_name(self, country_name):
         session = Session(self.engine)
 
-        country_result = session.query(self.Country).filter(self.Country.Country == country)
+        country_result = session.query(self.Country).filter(self.Country.Country == country_name)
 
         df = pd.read_sql(country_result.statement, session.connection())
-        print(df)
         session.close()
+
         return df.to_dict(orient='records')
 
     def get_countries_medals_count(self):
