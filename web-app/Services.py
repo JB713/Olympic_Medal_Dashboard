@@ -17,6 +17,9 @@ class Services():
         self.Base = automap_base()
         self.Base.prepare(self.engine, reflect=True)
         self.Medal = self.Base.classes['medal']
+        self.Country = self.Base.classes['country']
+        self.Athlete = self.Base.classes['athlete']
+        self.Master = self.Base.classes['master_olympics']
         self.meta = MetaData()
 
     def get_medals(self):
@@ -25,6 +28,35 @@ class Services():
         results = session.query(self.Medal)
         df = pd.read_sql(results.statement, session.connection())
         session.close()
+        return df.to_dict(orient='records')
+
+    def get_countries(self):
+        session = Session(self.engine)
+
+        results = session.query(self.Country)
+        df = pd.read_sql(results.statement, session.connection())
+        session.close()
+        return df.to_dict(orient='records')
+
+    def get_country(self, country):
+
+        print(country)
+        session = Session(self.engine)
+
+        country_result = session.query(self.Country).filter(self.Country.Country == country)
+
+        df = pd.read_sql(country_result.statement, session.connection())
+        print(df)
+        session.close()
+        return df.to_dict(orient='records')
+
+    def get_countries_medals_count(self):
+        session = Session(self.engine)
+
+        results = session.query(self.Country, self.Medal, self.Master, self.Athlete).filter(self.Country.country_id == self.Athlete.country_id, self.Athlete.Athlete_id == self.Master.Athlete_id, self.Master.medal_id == self.Medal.medal_id)
+        df = pd.read_sql(results.statement, session.connection())
+        session.close()
+
         return df.to_dict(orient='records')
 
 
