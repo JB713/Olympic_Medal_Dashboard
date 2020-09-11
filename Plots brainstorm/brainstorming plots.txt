@@ -1,0 +1,13 @@
+
+Map:
+1) Medal count map (for all countries) by YEAR
+2) (OPTIONAL) MEDAL COUNT BY Year and By Sport display on Map
+
+plots
+
+Gender:
+1) Yearly basis gender medal won distribution by country (LINE)
+= Men and women as separate lines in a LINE CHART
+2) Plot of medals won on a normalized basis to population (bar) 
+= Total medals won  by country / Population (Can be plotted as horizontal or vertical)  Last 2 decades and Top 10 or 20 or whatever countries
+3) (OPTIONAL) Ability to sift through a particular event and pull XYZ
