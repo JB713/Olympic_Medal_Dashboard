@@ -1,5 +1,4 @@
 import pandas as pd
-import sqlalchemy
 
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -7,7 +6,7 @@ from sqlalchemy import create_engine, inspect, MetaData, Table, join, outerjoin
 from config import connection_string
 
 
-class Services():
+class Services:
 
     def __init__(self):
         self.engine = create_engine(connection_string)
@@ -51,13 +50,16 @@ class Services():
 
         return df.to_dict(orient='records')
 
-    def get_countries_medals_count(self):
+    def get_all_data(self):
         session = Session(self.engine)
 
-        results = session.query(self.Country, self.Medal, self.Master, self.Athlete).filter(self.Country.country_id == self.Athlete.country_id, self.Athlete.Athlete_id == self.Master.Athlete_id, self.Master.medal_id == self.Medal.medal_id)
+        results = session.query(self.Country, self.Medal, self.Master, self.Athlete, self.Event).filter(self.Country.country_id == self.Athlete.country_id, self.Athlete.Athlete_id == self.Master.Athlete_id, self.Master.medal_id == self.Medal.medal_id, self.Event.event_id == self.Master.event_id)
         df = pd.read_sql(results.statement, session.connection())
         session.close()
+        return df
 
+    def get_countries_medals_count(self):
+        df = self.get_all_data()
         return df.to_dict(orient='records')
 
 

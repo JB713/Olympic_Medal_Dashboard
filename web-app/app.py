@@ -27,6 +27,7 @@ def get_country_info_by_name(country_name):
 def get_countries():
     return jsonify(data.get_countries())
 
+
 # Retrieve all medals and athletes
 @app.route("/api/v1.0/countries_medals")
 def get_countries_medals_count():
