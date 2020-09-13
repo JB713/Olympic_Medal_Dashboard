@@ -33,6 +33,10 @@ def get_countries():
 def get_countries_medals_count():
     return jsonify(data.get_countries_medals_count())
 
+# My Gender app route
+@app.route("/api/v1.0/gender_medals")
+def get_gender_medals_count():
+    return jsonify(data.get_gender_medals_count())
 
 if __name__ == "__main__":
     app.run(debug=True)
