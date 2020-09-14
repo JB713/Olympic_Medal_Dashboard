@@ -40,7 +40,7 @@ def get_gender_medals_count():
 
 @app.route("/api/v1.0/countries_medals_count_population")
 def get_gender_medals_count():
-    return jsonify(data.get_gender_medals_count())
+    return jsonify(data.countries_medals_count_population())
 
 
 
