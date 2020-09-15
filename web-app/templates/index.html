@@ -21,8 +21,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
 
-<!-- Specific Bootstrap Theme CSS
-<link rel="stylesheet" href="../static/css/bootstrap-lux.css"> -->
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
@@ -42,14 +40,8 @@
   
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav mr-auto">
-        <!-- <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li> -->
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#">Team</a>
-        </li> -->
         <li class="nav-item">
-          <a class="nav-link" href="#">Project Repository</a>
+          <a class="nav-link" href="https://github.com/JB713/Olympic_Medal_Dashboard">Project Repository</a>
         </li>
         </li>
         </li>
@@ -58,15 +50,15 @@
   </nav>
 
   <div class="wrapper">
-    <div class="hero heroLanding text-center">
+    <div class="parallax parallaxLanding text-center">
         <h1 style="color: white; margin-top: 180px";>120 YEARS OF OLYMPICS</h1>
     </div>
     
     <div class="container">
 
         <!-- Header and Intro -->
-        <div class="row"><h1>A Glance to the History Modern Olympics</h1></div>
-        <div class="row"><p>The interactive charts illustrate the success of countries from Athens 1896 to Rio 2016.<br>
+        <div class="row"><h1>A Glance to the History of Modern Olympics</h1></div>
+        <div class="row"><p>The interactive charts illustrate the success of countries from Athens 1896 to Sochi 2014.<br>
             <br>
              </p>
         </div>
@@ -78,41 +70,24 @@
             </div>
         </div>
 
-        <!--Test Medal JS-->
-        <div class='row'>
-          <div class='col-md-12'>
-              <div id="table">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Medal ID</th>
-                      <th>Medal name</th>
-                    </tr>
-                  </thead>
-                  <tbody></tbody>
-                </table>
-              </div>
-          </div>
-
-        </div>
 
         <div class="wrapper" style="margin-top: 0.5em;">
           <div class="container">
-              <!-- Bubble & Line Plots -->
-              <div class="row"></div>
-              <div class="row">
-                  <div class="col-md-10">
-                      <canvas id="gendermedals" class="chartjs" width="770" height="400" style="display:block; width: 770px; height: 400px"></canvas>
-                  </div>
-                  <div class="col-md-2" style="padding: 1rem; background-color: #f7f7f9"> 
-                      <div>
-                          <h5>Genders Medals</h5>
-                          <p>See the chart</p>
- 
-                      </div>
-                  </div>  
-              </div> 
-      
+            <div class="row">
+              <div class="col-md-10"> 
+                <div id="bar" style="width: 100%; height: 400px"></div>
+            </div>
+              <div class="col-md-2" style="padding: 2rem; background-color: #f7f7f9">
+                  <h5>Gender vs. Medals</h5>
+                  <p>See selected countries Male vs. Female medal winners distribution from 1994 to 2014</p>
+                  <hr class="my-4">
+                  <h5>Country:</h5>
+                  <select id="selCountrySet" onchange="optionChanged(this.value)"></select>
+              </div>
+              
+          </div> 
+  
+       
               <div class="row">
                   <div class="col-md-2" style="padding: 2rem; background-color: #f7f7f9">
                       <h5> Population GDP and Medals</h5>
@@ -138,7 +113,9 @@
 </div>
 </div>
 </body>
-
+<!-- <script src="http://underscorejs.org/underscore-min.js"></script> -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="../static/js/index.js"></script>
+<script src="../static/js/genderMedalCount.js"></script>
 
 </html>

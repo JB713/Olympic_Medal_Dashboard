@@ -10,7 +10,7 @@
   left: 0;
   min-height: 10px;
   padding:5px;
-  background: #c5bbbb;
+  background: #fcfcfc;
 }
 
 .row {
@@ -27,7 +27,7 @@
 }
 
 /* The styles for the parallax */
-.hero {
+.parallax {
   position: relative;
   height: 750px;
   padding: 50px;
@@ -38,18 +38,18 @@
   background-size: cover;
   }
   
-.heroLanding {
+.parallaxLanding {
 background-image: url("../assets/olympicClosing.jpg");
 }
 
 
 
-.hero h1 {
+.parallax h1 {
 margin-top: 250px;
 font-size: 5rem;
 }
 
-.hero p {
+.parallax p {
 font-size: 3rem;
 opacity: 0;
 }
