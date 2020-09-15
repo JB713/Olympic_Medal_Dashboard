@@ -19,6 +19,11 @@ def get_all_medals():
     return jsonify(data.get_medals())
 
 
+@app.route("/search")
+def go_to_search():
+    return render_template('index_olympicsSportsFilter.html')
+
+
 @app.route("/api/v1.0/country/<country_name>")
 def get_country_info_by_name(country_name):
     return jsonify(data.get_country_info_by_name(country_name))
