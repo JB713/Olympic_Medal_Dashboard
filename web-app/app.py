@@ -43,6 +43,9 @@ def get_gender_medals_count():
 def gender_medal_dict():
     return jsonify(data.gender_medal_dict())
 
+@app.route("/api/v1.0/country_codes")
+def get_country_codes():
+    return jsonify(data.get_country_codes())
 
 if __name__ == "__main__":
     app.run(debug=True)
