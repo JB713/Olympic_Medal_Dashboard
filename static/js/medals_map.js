@@ -8,10 +8,6 @@ const worldMap = L.map(
     }
 );
 
-
-    d3.json('/api/v1.0/get_api_key').then(data => {
-        const API_KEY = data
- // Create the tile layer that will be the background of our map
 L.tileLayer(
     "https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
     {
@@ -20,7 +16,6 @@ L.tileLayer(
         accessToken: API_KEY
     }
 ).addTo(worldMap);
-    });
 
 
 const GOLD_COLOR = "#FFD700";

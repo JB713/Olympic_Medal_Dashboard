@@ -1,10 +1,6 @@
-
 from Services import Services
 from flask import Flask, jsonify, render_template
-from config import LOCAL_API_KEY
-import os
 
-# create instance of Flask app
 app = Flask(__name__)
 
 data = Services()
@@ -17,11 +13,6 @@ data = Services()
 def index():
     return render_template('index.html')
 
-
-@app.route("/api/v1.0/get_api_key")
-def get_api_key():
-    # return os.environ.get('HEROKU_MAP_KEY', '') or LOCAL_API_KEY;
-    return LOCAL_API_KEY;
 
 @app.route("/api/v1.0/medals")
 def get_all_medals():
