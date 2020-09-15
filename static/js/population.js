@@ -65,7 +65,7 @@ d3.json("/api/v1.0/countries_medals_count_population").then(
             .attr("fill", "green")
             // event listener for onclick event
             .on("click", function (d, i) {
-                alert(`Hey! You clicked bar ${dataCategories[i]}!`);
+                alert(`${dataArray[i]}!`);
             })
             // event listener for mouseover
             .on("mouseover", function () {
