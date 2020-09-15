@@ -10,7 +10,7 @@ from config import connection_string
 class Services:
 
     def __init__(self):
-        self.connection_string = os.environ['HEROKU_POSTGRESQL_NAVY_URL'] or connection_string
+        self.connection_string = os.environ.get('HEROKU_POSTGRESQL_NAVY_URL', '') or connection_string
 
         self.engine = create_engine(self.connection_string)
         self.inspector = inspect(self.engine)
