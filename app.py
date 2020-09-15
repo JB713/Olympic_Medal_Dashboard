@@ -8,7 +8,10 @@ app = Flask(__name__)
 data = Services()
 
 
-@app.route('/index.html', methods=['GET'])
+@app.route('/')
+@app.route('/home')
+@app.route('/index')
+@app.route('/index.html')
 def index():
     return render_template('index.html')
 

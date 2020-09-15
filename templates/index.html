@@ -2,120 +2,151 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Olympic Games</title>
-  <link rel="shortcut icon" type = "image/png" href = "../static/assets/favicon.png">
-<!-- Reset CSS -->
-<link rel="stylesheet" href="../static/css/reset.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Olympic Games</title>
 
-<!-- Bootstrap CDN Versions of jQuery and Popper -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> <!-- Dropdown Menu -->
+    <link rel="shortcut icon" type="image/png" href="../static/assets/favicon.png">
 
-<!-- Bootstrap CDN Versions of Min CSS and Min JS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="../static/css/reset.css">
+
+    <!-- Bootstrap CDN Versions of jQuery and Popper -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script> <!-- Dropdown Menu -->
+
+    <!-- Bootstrap CDN Versions of Min CSS and Min JS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css"
+          integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
 
 
-<!-- CSS -->
-<link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
 
-<!-- D3 -->
-  <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- D3 -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="#"> 
-      <a href="/"><img style="padding-right: 15px" src="../static/assets/icon.png" width="80px" height="30px"></a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">
+        <a href="/"><img style="padding-right: 15px" src="../static/assets/icon.png" width="80px" height="30px"></a>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
-  
-    <div class="collapse navbar-collapse" id="navbarColor01">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="https://github.com/JB713/Olympic_Medal_Dashboard">Project Repository</a>
-        </li>
-        </li>
-        </li>
-      </ul>
-    </div>
-  </nav>
 
-  <div class="wrapper">
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/JB713/Olympic_Medal_Dashboard">Project Repository</a>
+            </li>
+            </li>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="wrapper">
     <div class="parallax parallaxLanding text-center">
-        <h1 style="color: white; margin-top: 180px";>120 YEARS OF OLYMPICS</h1>
+        <h1 style="color: white; margin-top: 180px" ;>120 YEARS OF OLYMPICS</h1>
     </div>
     
     <div class="container">
 
         <!-- Header and Intro -->
         <div class="row"><h1>A Glance to the History of Modern Olympics</h1></div>
-        <div class="row"><p>The interactive charts illustrate the success of countries from Athens 1896 to Sochi 2014.<br>
+        <div class="row"><p>The interactive charts illustrate the success of countries from Athens 1896 to Sochi
+            2014.<br>
             <br>
-             </p>
+        </p>
         </div>
 
         <!-- Leaflet Map -->
         <div class="row">
-            <div class="col-md-12"> 
-                <div id="map" style="width: 100%; height: 500px"></div>
+            <div class="col-md-12">
+                <h1 id="map_title">Total Medals By Country</h1>
+                <div id="map" style="width: 960px; height: 500px"></div>
             </div>
         </div>
 
-
         <div class="wrapper" style="margin-top: 0.5em;">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-10"> 
-                <div id="bar" style="width: 100%; height: 400px"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div id="bar" style="width: 100%; height: 400px"></div>
+                    </div>
+                    <div class="col-md-2" style="padding: 2rem; background-color: #f7f7f9">
+                        <h5>Gender vs. Medals</h5>
+                        <p>See selected countries Male vs. Female medal winners distribution from 1994 to 2014</p>
+                        <hr class="my-4">
+                        <h5>Country:</h5>
+                        <select id="selCountrySet" onchange="optionChanged(this.value)"></select>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-2" style="padding: 2rem; background-color: #f7f7f9">
+                        <h5> Population GDP and Medals</h5>
+                        <p>See the </p>
+                        <hr class="my-4">
+                        <h5>Country:</h5>
+                        <select id="selCountrySet" onchange="optionChanged(this.value)"></select>
+                    </div>
+                    <div class="col-md-10">
+                        <div id="populationmedals" style="width: 100%; height: 400px"></div>
+                    </div>
+                </div>
+
+
+                <!-- Footer-->
+                <div class="row">
+                    <div class='col-md-12'>
+                        <div id="footer">
+                            <p>Team 06 &copy; 2020</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-              <div class="col-md-2" style="padding: 2rem; background-color: #f7f7f9">
-                  <h5>Gender vs. Medals</h5>
-                  <p>See selected countries Male vs. Female medal winners distribution from 1994 to 2014</p>
-                  <hr class="my-4">
-                  <h5>Country:</h5>
-                  <select id="selCountrySet" onchange="optionChanged(this.value)"></select>
-              </div>
-              
-          </div> 
-  
-       
-              <div class="row">
-                  <div class="col-md-2" style="padding: 2rem; background-color: #f7f7f9">
-                      <h5> Population GDP and Medals</h5>
-                      <p>See the </p>
-                      <hr class="my-4">
-                      <h5>Country:</h5>
-                      <select id="selCountrySet" onchange="optionChanged(this.value)"></select>
-                  </div>
-                  <div class="col-md-10"> 
-                      <div id="populationmedals" style="width: 100%; height: 400px"></div>
-                  </div>
-              </div> 
-
-
-
-
-  <!-- Footer-->
-<div class="row">
-  <div class='col-md-12'>
-  <div id="footer">
-    <p>Team 06 &copy; 2020</p>
-  </div>
+        </div>
+    </div>
 </div>
-</div>
-</body>
-<!-- <script src="http://underscorejs.org/underscore-min.js"></script> -->
+
+<!-- Plotly JS -->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<script src="../static/js/index.js"></script>
-<script src="../static/js/genderMedalCount.js"></script>
 
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+
+<!-- Our JS -->
+<script src="../static/js/genderMedalCount.js"></script>
+<script src="../static/js/medals_map.js"></script>
+
+</body>
 </html>
