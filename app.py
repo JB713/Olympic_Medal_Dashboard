@@ -32,8 +32,8 @@ def get_countries():
 
 
 @app.route("/api/v1.0/countries_medals_count_population")
-def get_gender_medals_count():
-    return jsonify(data.countries_medals_count_population())
+def get_countries_medals_count_population():
+    return jsonify(data.get_countries_medals_count_population())
 
 
 @app.route("/api/v1.0/medal_dict_gender")

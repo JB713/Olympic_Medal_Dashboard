@@ -73,6 +73,7 @@ class Services:
         unique_contcodes=gender_medal_female['Code'].unique()
         
         return unique_contcodes.tolist()
+
     def gender_medal_dict(self):
         df = self.get_all_data()
         gender_df = df[['Year', 'Code', 'Medal', 'Gender']]
