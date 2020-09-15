@@ -8,7 +8,6 @@ const worldMap = L.map(
     }
 );
 
-// Create the tile layer that will be the background of our map
 L.tileLayer(
     "https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
     {
@@ -17,6 +16,7 @@ L.tileLayer(
         accessToken: API_KEY
     }
 ).addTo(worldMap);
+
 
 const GOLD_COLOR = "#FFD700";
 const SILVER_COLOR = "#c0c0c0";

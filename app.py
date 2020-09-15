@@ -1,8 +1,6 @@
-
 from Services import Services
 from flask import Flask, jsonify, render_template
 
-# create instance of Flask app
 app = Flask(__name__)
 
 data = Services()

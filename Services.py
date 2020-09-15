@@ -3,7 +3,7 @@ import os
 
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, inspect, MetaData, desc, func
+from sqlalchemy import create_engine, inspect, MetaData, desc, func, asc
 from config import connection_string
 
 
@@ -64,14 +64,15 @@ class Services:
 
     def get_country_codes(self):
         df = self.get_all_data()
-        gender_df=df[['Year','Code','Medal','Gender']]
-        gender_df_2 = gender_df.loc[gender_df['Year']>1992]
-        gender_medal_df = gender_df_2.groupby(['Year','Code','Gender']).count().reset_index()
-        gender_medal_df2= gender_medal_df.drop_duplicates()
-        gender_medal_df3 = gender_medal_df2.groupby(["Code","Year"]).filter(lambda x: (x["Gender"] == "Men").any() and (x["Gender"] == "Women").any())
-        gender_medal_female = gender_medal_df3.loc[gender_medal_df2["Gender"]=="Women"]
-        unique_contcodes=gender_medal_female['Code'].unique()
-        
+        gender_df = df[['Year', 'Code', 'Medal', 'Gender']]
+        gender_df_2 = gender_df.loc[gender_df['Year'] > 1992]
+        gender_medal_df = gender_df_2.groupby(['Year', 'Code', 'Gender']).count().reset_index()
+        gender_medal_df2 = gender_medal_df.drop_duplicates()
+        gender_medal_df3 = gender_medal_df2.groupby(["Code", "Year"]).filter(
+            lambda x: (x["Gender"] == "Men").any() and (x["Gender"] == "Women").any())
+        gender_medal_female = gender_medal_df3.loc[gender_medal_df2["Gender"] == "Women"]
+        unique_contcodes = gender_medal_female['Code'].unique()
+
         return unique_contcodes.tolist()
 
     def gender_medal_dict(self):
@@ -104,20 +105,20 @@ class Services:
         session = Session(self.engine)
         results = session.query(
             self.Country.Country,
-            self.Country.Code,
-            self.Event.Year,
             func.count(self.Medal.medal_id).label("medals_count"),
-            self.Country.Population
+            self.Country.Population,
+            (self.Country.Population / func.count(self.Medal.medal_id)).label("medals_by_population")
         ).filter(
             self.Country.country_id == self.Athlete.country_id,
             self.Athlete.athlete_id == self.Master.athlete_id,
             self.Master.medal_id == self.Medal.medal_id,
-            self.Event.event_id == self.Master.event_id
+            self.Event.event_id == self.Master.event_id,
+            self.Event.Year.between(1993, 2015),
+            self.Country.Population.isnot(None)
         ).group_by(
-            self.Country.country_id,
-            self.Event.Year
+            self.Country.country_id
         ).order_by(
-            desc("medals_count")
+            asc("medals_by_population")
         )
 
         df = pd.read_sql(results.statement, session.connection())
