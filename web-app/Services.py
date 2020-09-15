@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -9,8 +10,9 @@ from config import connection_string
 class Services:
 
     def __init__(self):
-        self.engine = create_engine(connection_string)
-        self.connection_string = connection_string
+        self.connection_string = os.environ['HEROKU_POSTGRESQL_NAVY_URL'] or connection_string
+
+        self.engine = create_engine(self.connection_string)
         self.inspector = inspect(self.engine)
         self.tables = self.inspector.get_table_names()
         self.Base = automap_base()
