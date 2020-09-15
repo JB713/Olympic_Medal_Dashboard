@@ -98,10 +98,6 @@ class Services:
                                      'Female_Medal': item.Female_Medal.values.tolist()}
         return istedigimiz_dict
 
-    def get_countries_medals_count(self):
-        df = self.get_all_data()
-        return df.to_dict(orient='records')
-
     # Population Medals
     def get_countries_medals_count_population(self):
         session = Session(self.engine)
@@ -124,6 +120,86 @@ class Services:
         )
 
         df = pd.read_sql(results.statement, session.connection())
+        session.close()
+
+        return df.to_dict(orient='records')
+
+    def get_medal_count_by_country_and_year(self):
+        session = Session(self.engine)
+
+        results = session.query(
+            self.Country.Country,
+            self.Country.Code,
+            self.Event.Year,
+            func.count(self.Medal.medal_id).label("medals_count"),
+            self.Country.latitude,
+            self.Country.longitude
+        ).filter(
+            self.Country.country_id == self.Athlete.country_id,
+            self.Athlete.athlete_id == self.Master.athlete_id,
+            self.Master.medal_id == self.Medal.medal_id,
+            self.Event.event_id == self.Master.event_id
+        ).group_by(
+            self.Country.country_id,
+            self.Event.Year
+        ).order_by(
+            desc("medals_count")
+        )
+
+        df = pd.read_sql(results.statement, session.connection())
+
+        session.close()
+
+        return df.to_dict(orient='records')
+
+    def get_country_medals(self, country_name):
+        session = Session(self.engine)
+
+        results = session.query(
+            self.Country.Country,
+            self.Medal.Medal,
+            func.count(self.Medal.medal_id).label("medals_count")
+        ).filter(
+            self.Country.country_id == self.Athlete.country_id,
+            self.Athlete.athlete_id == self.Master.athlete_id,
+            self.Master.medal_id == self.Medal.medal_id,
+            self.Event.event_id == self.Master.event_id,
+            self.Country.Country == country_name
+        ).group_by(
+            self.Country.country_id,
+            self.Medal.medal_id
+        ).order_by(
+            self.Country.Country,
+            self.Medal.importance
+        )
+
+        df = pd.read_sql(results.statement, session.connection())
+
+        session.close()
+
+        return df.to_dict(orient='records')
+
+    def get_medal_count_total_by_country(self):
+        session = Session(self.engine)
+
+        results = session.query(
+            self.Country.Country,
+            self.Country.latitude,
+            self.Country.longitude,
+            func.count(self.Medal.medal_id).label("medals_count")
+        ).filter(
+            self.Country.country_id == self.Athlete.country_id,
+            self.Athlete.athlete_id == self.Master.athlete_id,
+            self.Master.medal_id == self.Medal.medal_id,
+            self.Event.event_id == self.Master.event_id
+        ).group_by(
+            self.Country.country_id
+        ).order_by(
+            self.Country.Country
+        )
+
+        df = pd.read_sql(results.statement, session.connection())
+
         session.close()
 
         return df.to_dict(orient='records')
