@@ -27,5 +27,8 @@ Then, the dataset from 1994 to 2014 was sliced to understand the distribution of
 Finally, it was analyzed how many people does it take to win one medal relative to total population.
 
 ## Technology 
-For this dashboard, for data cleanup, wranglig, slicing and ETL, python libraries pandas and numpy were heavily used.  The database was deployed to Postgresql, a relational database in second normal form was created.  For the necessary api routes, Flask with python was used. HTML, CSS and JavaScript (more specifiallyBootstrap, plotly.js, leaflet.js and d3.js) were used for the frontend of the dashboard.  The entire application was deployed on Heroku.
+For this dashboard, for data cleanup, wranglig, slicing and ETL, python libraries pandas and numpy were heavily used.  The database was deployed to Postgresql, a relational database in second normal form was created.  For the necessary api routes, Flask with python was used. HTML, CSS and JavaScript (more specifially Bootstrap, plotly.js, leaflet.js and d3.js) were used for the frontend of the dashboard.  The entire application was deployed on Heroku.
+
+## Keywords
+python, ipynb, postgresql, ERD, jupyter notebook, interactive dashboard, Olympics Dashboard, JavaScript, HTML, CSS, Bootstrap, leaflet.js, plotly.js, d3.js.
 
