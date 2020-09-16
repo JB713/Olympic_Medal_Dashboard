@@ -14,7 +14,7 @@ The dataset was loaded to Postgresql database and then deployed to Heroku.
 
 ## Analysis
 As analysis, we have mainly focused on countries' medal distributions in different aspects.  
-![Map1] (https://github.com/JB713/Olympic_Medal_Dashboard/blob/master/static/assets/Map1.PNG?raw=true)
+(https://github.com/JB713/Olympic_Medal_Dashboard/blob/master/static/assets/Map1.PNG?raw=true)
 
 Initially, a world map was plotted showing individual countries with total medals won so far in both summer and winter olympics and the distribution of gold, silver and bronze.
 
