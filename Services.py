@@ -75,10 +75,10 @@ class Services:
 
         return unique_contcodes.tolist()
 
-    def gender_medal_dict(self):
+    def gender_medal_dict(self, year=1992):
         df = self.get_all_data()
         gender_df = df[['Year', 'Code', 'Medal', 'Gender']]
-        gender_df_2 = gender_df.loc[gender_df['Year'] > 1992]
+        gender_df_2 = gender_df.loc[gender_df['Year'] > year]
         gender_medal_df = gender_df_2.groupby(['Year', 'Code', 'Gender']).count().reset_index()
         gender_medal_df2 = gender_medal_df.drop_duplicates()
         gender_medal_df3 = gender_medal_df2.groupby(["Code", "Year"]).filter(
@@ -185,6 +185,7 @@ class Services:
         session = Session(self.engine)
 
         results = session.query(
+            self.Country.Code,
             self.Country.Country,
             self.Country.latitude,
             self.Country.longitude,
@@ -196,6 +197,35 @@ class Services:
             self.Event.event_id == self.Master.event_id
         ).group_by(
             self.Country.country_id
+        ).order_by(
+            self.Country.Country
+        )
+
+        df = pd.read_sql(results.statement, session.connection())
+
+        session.close()
+
+        return df.to_dict(orient='records')
+
+    def get_medal_count_total_by_country_and_gender(self):
+        session = Session(self.engine)
+
+        results = session.query(
+            self.Country.Code,
+            self.Country.Country,
+            self.Country.latitude,
+            self.Country.longitude,
+            func.count(self.Medal.medal_id).label("male_medals_count"),
+            func.count(self.Medal.medal_id).label("female_medals_count")
+        ).filter(
+            self.Country.country_id == self.Athlete.country_id,
+            self.Athlete.athlete_id == self.Master.athlete_id,
+            self.Athlete.Gender == 'Men',
+            self.Master.medal_id == self.Medal.medal_id,
+            self.Event.event_id == self.Master.event_id,
+        ).group_by(
+            self.Country.country_id,
+            self.Athlete.Gender
         ).order_by(
             self.Country.Country
         )

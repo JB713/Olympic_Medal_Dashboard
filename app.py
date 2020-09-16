@@ -41,7 +41,7 @@ def get_countries_medals_count_population():
 
 @app.route("/api/v1.0/medal_dict_gender")
 def gender_medal_dict():
-    return jsonify(data.gender_medal_dict())
+    return jsonify(data.gender_medal_dict(1890))
 
 
 @app.route("/api/v1.0/country_codes")
@@ -66,6 +66,10 @@ def get_medal_count_total_by_country():
 def get_country_medals(country_name):
     return jsonify(data.get_country_medals(country_name))
 
+# Retrieve medal counts by type of medal by gender for a country
+@app.route('/api/v1.0/get_country_medals_by_gender/<country_name>')
+def get_country_medals_by_gender(country_name):
+    return jsonify(data.get_country_medals_by_gender(country_name))
 
 if __name__ == "__main__":
     app.run(debug=True)

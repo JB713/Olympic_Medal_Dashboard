@@ -40,7 +40,7 @@ d3.json('/api/v1.0/medal_count_total_by_country').then(
                         
                         countryMedals.forEach(
                             medal => {
-                                console.log(colors[medal.Medal])
+                                //console.log(colors[medal.Medal])
                                 popupContent += '<i style="background:' + colors[medal.Medal] + '"></i> ' + medal.medals_count + '<br>';
                                 
                             }
