@@ -14,15 +14,15 @@ The dataset was loaded to Postgresql database and then deployed to Heroku.
 
 ## Analysis
 As analysis, we have mainly focused on countries' medal distributions in different aspects.  
-(https://github.com/JB713/Olympic_Medal_Dashboard/blob/master/static/assets/Map1.PNG?raw=true)
+![Map1](https://github.com/JB713/Olympic_Medal_Dashboard/blob/master/static/assets/Map1.PNG?raw=true)
 
 Initially, a world map was plotted showing individual countries with total medals won so far in both summer and winter olympics and the distribution of gold, silver and bronze.
 
-![BarChart1] (https://github.com/JB713/Olympic_Medal_Dashboard/blob/master/static/assets/BarChart1.PNG?raw=true)
+![BarChart1](https://github.com/JB713/Olympic_Medal_Dashboard/blob/master/static/assets/BarChart1.PNG?raw=true)
 
 Then, the dataset from 1994 to 2014 was sliced to understand the distribution of male vs. female medal winners per country.
 
-![BarChart2] (https://github.com/JB713/Olympic_Medal_Dashboard/blob/master/static/assets/BarChart2.PNG?raw=true)
+![BarChart2](https://github.com/JB713/Olympic_Medal_Dashboard/blob/master/static/assets/BarChart2.PNG?raw=true)
 
 Finally, it was analyzed how many people does it take to win one medal relative to total population.
 
