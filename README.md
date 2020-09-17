@@ -6,15 +6,23 @@ The final dashboard link is at https://olympic-games-dashboard.herokuapp.com/
 
 ## Dataset
 Data was gathered from kaggle https://www.kaggle.com/the-guardian/olympic-games.
-It was mostly a clean dataset which consist of 3 csv files: 1) dictionary.csv has 4 columns as "Country", "Code", "Population" and "GDP per Capita" 
-2) summer.csv has "Year", "City", "Sport", "Discipline", "Athlete", "Country", "Gender", "Event" and "Medal" for summer olympics.  3) winter.csv has exactly the same columns
-with summer.csv for winter olympics.  
 
-The dataset was loaded to Postgresql database and then deployed to Heroku.
+The dataset is mostly clean and consists of 3 csv files: 
+1) dictionary.csv has 4 columns as "Country", "Code", "Population" and "GDP per Capita" 
+2) summer.csv has "Year", "City", "Sport", "Discipline", "Athlete", "Country", "Gender", "Event" and "Medal" for summer olympics.  
+3) winter.csv has exactly the same columns with summer.csv for winter olympics.  
+
+## ETL
+
+Five tables were created using Python after ERD diagrams were createdand studied to represent countries, athletes, sporting events and medals. The challenge was to capture athlete names since athletes repeated for the same event ini different countries. Therefore, the solution was to create separate event ID's, athlete ID's and country ID's to create the final database.
+
+The dataset was loaded via SQLAlchemy to Postgresql database and then deployed to Heroku.
 
 ## Analysis
 As analysis, we have mainly focused on countries' medal distributions in different aspects.  
 ![Map1](https://github.com/JB713/Olympic_Medal_Dashboard/blob/master/static/assets/Map1.PNG?raw=true)
+
+![Map2](https://github.com/JB713/Olympic_Medal_Dashboard/blob/master/static/assets/Map2.PNG?raw=true)
 
 Initially, a world map was plotted showing individual countries with total medals won so far in both summer and winter olympics and the distribution of gold, silver and bronze.
 
