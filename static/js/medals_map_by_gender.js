@@ -19,7 +19,7 @@ L.tileLayer(
 
 d3.json('/api/v1.0/medal_count_total_by_country').then(
     (medals_by_country) => {
-        d3.json('/api/v1.0/medal_dict_gender').then(medal_dict_gender => {
+        d3.json('/api/v1.0/medal_dict_gender_all_years').then(medal_dict_gender => {
             medals_by_country.forEach(countryData => {
                 let countryMedalsByGender = medal_dict_gender[countryData.Code];
                 
